@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+.jumbotron {
+  background-image: url(./image/img-principal1.jpg);
+  width: 100%;
+  background-color: black;
+  border-color: rgb(34, 33, 33);
+  border-width: 1px;
+}
+.navbar-brand {
+  background-image: url(./image/logo-img.png) ;
+  
+  width: 105px;
+  height: 44px;
+}
+.img-card-flm {
+    height: 200px; 
+    width: 100%; 
+    display: block;
+}
+.jumbotron h3 {
+  color: rgb(247, 227, 119);
+}
+.jumbotron h2 {
+  color:  rgb(247, 227, 119);
+  font-size: 40px;
+  font-style: bold;  
+}
+
+.list-group li {
+  font-size: 11px;
+ justify-content: center; 
+}
+.card-header {
+  font-size: 20px;
+  background-color: rgb(22, 22, 22);
+  color:  rgb(247, 227, 119);
+  display: block;
+  text-justify: auto;
+}
+#root {
+  background-image: url(./image/fondo.jpg);
+}
+
+.navbar {
+  background-color: black;
+}
