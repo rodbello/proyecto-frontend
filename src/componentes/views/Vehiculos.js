@@ -42,7 +42,7 @@ class Vehiculos extends Component {
         return (
 
             <div>
-                <div clasName="container">
+                <div className="container">
                     <div className="row">
                         {peli}
                     </div>
