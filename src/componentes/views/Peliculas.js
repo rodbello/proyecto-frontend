@@ -35,6 +35,7 @@ class Peliculas extends Component {
                         <li className="list-group-item"><b>Director:</b> {p.director}</li>
                         <li className="list-group-item"><b>Productor:</b> {p.producer}</li>
                         <li className="list-group-item"><b>Fecha:</b> {p.release_date}</li>
+                        <li className="list-group-item"><b>Personajes:</b> {p.characters}</li>
                     </ul>
                 </div>
             </div>
