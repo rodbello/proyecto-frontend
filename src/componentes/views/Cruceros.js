@@ -6,23 +6,38 @@ class Cruceros extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            cruceros: []
+            cruceros: [],
+            pagina:''
         }
     }
 
     paginaAnterior = () => {
-
-    }
+        let pagina = this.state.pagina;
+        if(pagina === 1) return null;
+        pagina -= 1;
+        this.setState({
+            pagina
+        });
+        console.log(pagina)
+    };
     paginaSiguiente = () => {
-
-    }
+        let pagina = this.state.pagina;
+        pagina += 1;
+        this.setState({
+            pagina
+        });
+        console.log(pagina)
+    };
 
     componentWillMount() {
-
-        axios.get('https://swapi.co/api/starships/?page=1')
+        var pagina = 1
+        axios.get('https://swapi.co/api/starships/?page='+pagina)
             .then((response) => {
                 console.log(response)
-                this.setState({ cruceros: response.data.results })
+                this.setState({ cruceros: response.data.results,
+                                pagina: pagina
+                                
+                })
             }).catch((error) => {
                 console.log(error)
             });
@@ -30,7 +45,7 @@ class Cruceros extends Component {
 
     render() {
         var ships = this.state.cruceros.map(function (s) {
-            return <div className="col-sm-4" >
+            return <div className="col-sm-4" key={s.model} >
                 <div className="card mb-3">
                     <h2 className="card-header text-center">{s.name}</h2>
 
@@ -68,8 +83,8 @@ class Cruceros extends Component {
                     </div>
                     <div className='row justify-content-center'>
                         <Paginacion 
-                            paginaAnterior = {this.props.paginaAnterior}
-                            paginaSiguinete = {this.props.paginaSiguiente}
+                            paginaAnterior = {this.paginaAnterior}
+                            paginaSiguiente = {this.paginaSiguiente}
                         />
                     </div>
                 </div>

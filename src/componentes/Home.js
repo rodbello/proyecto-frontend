@@ -24,7 +24,6 @@ class Home extends Component {
     render() {
         var peliculas = this.state.peliculas.map(function (pelicula) {
             return <div className="col-sm-4" key={pelicula.id}>
-
                 <div className="card mb-3">
                     <h2 className="card-header text-center">{pelicula.title}</h2>
 
