@@ -5,16 +5,16 @@ class Planetas extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            peliculas: []
+            planetas: []
         }
     }
 
     componentWillMount() {
 
-        axios.get('https://swapi.co/api/films')
+        axios.get('https://swapi.co/api/planets/')
             .then((response) => {
                 console.log(response)
-                this.setState({ peliculas: response.data.results })
+                this.setState({ planetas: response.data.results })
             }).catch((error) => {
                 console.log(error)
             });
@@ -22,20 +22,26 @@ class Planetas extends Component {
 
 
     render() {
-        var peli = this.state.peliculas.map(function (p) {
+        var plan = this.state.planetas.map(function (l) {
             return <div className="col-sm-4">
-                            <h1>Planetas</h1>
+                            
 
                 <div className="card mb-3">
-                    <h2 className="card-header text-center">{p.title}</h2>
+                    <h2 className="card-header text-center">{l.name}</h2>
                     
                     <ul className="list-group list-group-flush">
-                        <li className="list-group-item"><b>Episodio:</b> {p.episode_id}</li>
-                        <li className="list-group-item text-justify align-self-stretch"><b>Sinopsis:</b> {p.opening_crawl}</li>
-                        <li className="list-group-item"><b>Director:</b> {p.director}</li>
-                        <li className="list-group-item"><b>Productor:</b> {p.producer}</li>
-                        <li className="list-group-item"><b>Fecha:</b> {p.release_date}</li>
+                        
+                        <li className="list-group-item text-justify align-self-stretch"><b>Periodo de Rotación:</b> {l.rotation_period}</li>
+                        <li className="list-group-item"><b>Periodo Orbital:</b> {l.orbital_period}</li>
+                        <li className="list-group-item"><b>Diametro:</b> {l.diameter}</li>
+                        <li className="list-group-item"><b>Clima:</b> {l.climate}</li>
+                        <li className="list-group-item"><b>Gravedad:</b> {l.gravity}</li>
+                        <li className="list-group-item"><b>Terreno:</b> {l.terrain}</li>
+                        <li className="list-group-item"><b>Superficie de Agua:</b> {l.surface_water}</li>
+                        <li className="list-group-item"><b>Población:</b> {l.population}</li>
+                        <li className="list-group-item"><b>Residentes:</b> {l.residents}</li>
                     </ul>
+
                 </div>
             </div>
         })
@@ -44,7 +50,7 @@ class Planetas extends Component {
             <div>
                 <div clasName="container">
                     <div className="row">
-                        {peli}
+                        {plan}
                     </div>
                 </div>
             </div>

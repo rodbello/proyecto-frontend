@@ -5,16 +5,16 @@ class Personajes extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            peliculas: []
+            personajes: []
         }
     }
 
     componentWillMount() {
 
-        axios.get('https://swapi.co/api/films')
+        axios.get('https://swapi.co/api/people/')
             .then((response) => {
                 console.log(response)
-                this.setState({ peliculas: response.data.results })
+                this.setState({ personajes: response.data.results })
             }).catch((error) => {
                 console.log(error)
             });
@@ -22,19 +22,23 @@ class Personajes extends Component {
 
 
     render() {
-        var peli = this.state.peliculas.map(function (p) {
+        var per = this.state.personajes.map(function (y) {
             return <div className="col-sm-4">
-                            <h1>Personajes</h1>
+                            
 
                 <div className="card mb-3">
-                    <h2 className="card-header text-center">{p.title}</h2>
+                    <h2 className="card-header text-center">{y.name}</h2>
                     
                     <ul className="list-group list-group-flush">
-                        <li className="list-group-item"><b>Episodio:</b> {p.episode_id}</li>
-                        <li className="list-group-item text-justify align-self-stretch"><b>Sinopsis:</b> {p.opening_crawl}</li>
-                        <li className="list-group-item"><b>Director:</b> {p.director}</li>
-                        <li className="list-group-item"><b>Productor:</b> {p.producer}</li>
-                        <li className="list-group-item"><b>Fecha:</b> {p.release_date}</li>
+                        <li className="list-group-item"><b>Altura:</b> {y.height}</li>
+                        <li className="list-group-item text-justify align-self-stretch"><b>Peso:</b> {y.mass}</li>
+                        <li className="list-group-item"><b>Color de Ojos:</b> {y.hair_color}</li>
+                        <li className="list-group-item"><b>Color de Piel:</b> {y.skin_color}</li>
+                        <li className="list-group-item"><b>Color de Ojos:</b> {y.eye_color}</li>
+                        <li className="list-group-item"><b>Cumpleaños:</b> {y.birth_year}</li>
+                        <li className="list-group-item"><b>Genero:</b> {y.gender}</li>
+                        <li className="list-group-item"><b>Planeta Natal:</b> {y.homeworld}</li>
+                        <li className="list-group-item"><b>Peliculas:</b> {y.films}</li>
                     </ul>
                 </div>
             </div>
@@ -44,7 +48,7 @@ class Personajes extends Component {
             <div>
                 <div clasName="container">
                     <div className="row">
-                        {peli}
+                        {per}
                     </div>
                 </div>
             </div>
