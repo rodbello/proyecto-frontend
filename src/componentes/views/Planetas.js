@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+
+
+
+
+
 class Planetas extends Component {
     constructor(props) {
         super(props);
         this.state = {
             planetas: []
+            
         }
     }
 
@@ -20,7 +26,7 @@ class Planetas extends Component {
             });
     }
 
-
+    
     render() {
         var plan = this.state.planetas.map(function (l) {
             return <div className="col-sm-4">
@@ -43,7 +49,9 @@ class Planetas extends Component {
                     </ul>
 
                 </div>
+                
             </div>
+            
         })
         return (
 
@@ -53,10 +61,12 @@ class Planetas extends Component {
                         {plan}
                     </div>
                 </div>
+               
             </div>
         );
-    }
-}
+        }
+      }
+    
 
 
 export default Planetas;
