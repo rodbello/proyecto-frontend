@@ -30,13 +30,10 @@ class Cruceros extends Component {
     };
 
     componentWillMount() {
-        var pagina = 1
-        axios.get('https://swapi.co/api/starships/?page='+pagina)
+        axios.get('https://swapi.co/api/starships/?page=1')
             .then((response) => {
                 console.log(response)
                 this.setState({ cruceros: response.data.results,
-                                pagina: pagina
-                                
                 })
             }).catch((error) => {
                 console.log(error)
